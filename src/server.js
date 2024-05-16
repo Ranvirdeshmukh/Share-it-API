@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import morgan from 'morgan';
+import mongoose from 'mongoose';
+import apiRoutes from './router';
 
 // initialize
 const app = express();
@@ -25,12 +27,28 @@ app.set('views', path.join(__dirname, '../src/views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // To parse the incoming requests with JSON payloads
 
+// MongoDB connection
+const MONGO_URL = 'mongodb://localhost:27017/platform_db';
+
+mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+
+mongoose.connection.on('connected', () => {
+  console.log('Connected to MongoDB');
+});
+
+mongoose.connection.on('error', (err) => {
+  console.log(`Failed to connect to MongoDB: ${err}`);
+});
+
 // additional init stuff should go before hitting the routing
 
 // default index route
 app.get('/', (req, res) => {
   res.send('hi');
 });
+
+// Register API routes
+app.use('/api', apiRoutes);
 
 // START THE SERVER
 // =============================================================================
