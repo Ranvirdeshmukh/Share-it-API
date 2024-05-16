@@ -7,7 +7,7 @@ const getUniqueId = () => { return Cypress._.uniqueId(Date.now().toString()); };
 const email = `${getUniqueId()}@test.com`;
 
 describe('Platform-API WITH Authentication - ok to fail if you are on lab5 - use it.skip to skip these', () => {
-  it('user signs up with email and password', () => {
+  it.skip('user signs up with email and password', () => {
     cy.request(
       'POST',
       '/api/signup',
@@ -17,7 +17,7 @@ describe('Platform-API WITH Authentication - ok to fail if you are on lab5 - use
       token = response.body.token;
     });
   });
-  it('same user signs up with email and password, expecting fail 422', () => {
+  it.skip('same user signs up with email and password, expecting fail 422', () => {
     cy.request({
       failOnStatusCode: false,
       method: 'POST',
@@ -27,7 +27,7 @@ describe('Platform-API WITH Authentication - ok to fail if you are on lab5 - use
       expect(response.status).to.eq(422);
     });
   });
-  it('user signs in with email and password', () => {
+  it.skip('user signs in with email and password', () => {
     cy.request({
       method: 'POST',
       url: '/api/signin',
@@ -37,7 +37,7 @@ describe('Platform-API WITH Authentication - ok to fail if you are on lab5 - use
       token = response.body.token;
     });
   });
-  it('user makes post with out auth token, expecting failure code 401', () => {
+  it.skip('user makes post with out auth token, expecting failure code 401', () => {
     cy.request({
       failOnStatusCode: false,
       method: 'POST',
@@ -52,7 +52,7 @@ describe('Platform-API WITH Authentication - ok to fail if you are on lab5 - use
       expect(response.status).to.eq(401);
     });
   });
-  it('user makes post with auth token', () => {
+  it.skip('user makes post with auth token', () => {
     cy.request({
       method: 'POST',
       url: '/api/posts',
@@ -69,7 +69,7 @@ describe('Platform-API WITH Authentication - ok to fail if you are on lab5 - use
       postId = response.body.id;
     });
   });
-  it('user deletes post with auth token', () => {
+  it.skip('user deletes post with auth token', () => {
     cy.request({
       method: 'DELETE',
       url: `/api/posts/${postId}`,
@@ -78,7 +78,7 @@ describe('Platform-API WITH Authentication - ok to fail if you are on lab5 - use
       expect(response.status).to.eq(200);
     });
   });
-  it('user signs in with email and wrong password, expecting fail code 401', () => {
+  it.skip('user signs in with email and wrong password, expecting fail code 401', () => {
     cy.request({
       failOnStatusCode: false,
       method: 'POST',
