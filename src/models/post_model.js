@@ -9,6 +9,8 @@ const PostSchema = new Schema({
   coverUrl: { type: String },
 }, {
   timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true },
 });
 
 const PostModel = mongoose.model('Post', PostSchema);
