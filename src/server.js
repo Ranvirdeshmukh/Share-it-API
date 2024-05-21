@@ -28,9 +28,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // To parse the incoming requests with JSON payloads
 
 // MongoDB connection
-const MONGO_URL = 'mongodb://localhost:27017/platform_db';
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost/kahootAPI';
 
-mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 mongoose.connection.on('connected', () => {
   console.log('Connected to MongoDB');

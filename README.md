@@ -1,8 +1,8 @@
-# Title
+# Title - LAB 5 platform api
 
 *description*
 
-[deployed url](http://url-if-deployed-here)
+[deployed url] https://platform-client-ranvirdeshmukh3.onrender.com/
 
 ## What Worked Well
 
