@@ -4,11 +4,9 @@
 
 [deployed url] https://platform-api-ranvirdeshmukh.onrender.com
 
-
-## What Worked Well
-
-## What Didn't
-
-## Extra Credit
+Everything worked well for me. Thank you so much for this opportunity.
 
 ## Screenshots
+
+![alt text](<screenshots/Screenshot 2024-05-21 at 6.35.36 PM.png>) 
+![alt text](<screenshots/Screenshot 2024-05-21 at 6.39.35 PM.png>)
